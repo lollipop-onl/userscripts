@@ -90,16 +90,5 @@ are what each script's `@downloadURL`/`@updateURL` point at, and are registered
 as the sync source on [Greasy Fork](https://greasyfork.org/). The workflow
 commits to `dist` only when a build output actually changed.
 
-### One-time setup
-
-Create the empty orphan `dist` branch once, before the first release:
-
-```bash
-git switch --orphan dist
-git commit --allow-empty -m "chore: initialize dist branch"
-git push -u origin dist
-git switch main
-```
-
-Then register each script on Greasy Fork with its raw `dist` URL as the sync
-source (optionally add the GitHub webhook for push-triggered sync).
+When adding a new script, register it on Greasy Fork with its raw `dist` URL as
+the sync source (optionally add the GitHub webhook for push-triggered sync).
