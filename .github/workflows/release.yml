@@ -26,6 +26,15 @@ jobs:
       - name: Sync built userscripts to the dist branch
         run: |
           set -euo pipefail
+          shopt -s nullglob
+
+          # Collect the built userscripts; exit cleanly if the build produced none.
+          built=(packages/*/dist/*.user.js)
+          if [ ${#built[@]} -eq 0 ]; then
+            echo "No built userscripts to publish."
+            exit 0
+          fi
+
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
@@ -36,7 +45,7 @@ jobs:
           # Replace the worktree contents with the freshly built userscripts.
           # Keep .git; drop previous *.user.js so removed packages disappear too.
           find ../dist-branch -maxdepth 1 -name '*.user.js' -delete
-          cp packages/*/dist/*.user.js ../dist-branch/
+          cp "${built[@]}" ../dist-branch/
 
           cd ../dist-branch
           git checkout -B dist
