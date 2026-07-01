@@ -51,6 +51,7 @@ export function defineMonkeyConfig(
 				server: { mountGmApi: true },
 				userscript: {
 					namespace: "https://github.com/simochee/userscripts",
+					license: "MIT",
 					downloadURL: distURL,
 					updateURL: distURL,
 					...userscript,
