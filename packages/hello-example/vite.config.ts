@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
 import monkey from "vite-plugin-monkey";
-import { getVersion } from "../../scripts/version.ts";
+import { resolveVersion } from "../../scripts/version.ts";
 
 const name = "hello-example";
 const repoRawBase =
@@ -16,7 +16,7 @@ export default defineConfig({
 				name: "Hello Example",
 				namespace: "https://github.com/simochee/userscripts",
 				description: "Example userscript demonstrating the build setup.",
-				version: getVersion(new Date()),
+				version: resolveVersion(`dist/${name}.user.js`),
 				match: ["https://example.com/*"],
 				grant: [],
 				downloadURL,

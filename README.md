@@ -1,5 +1,13 @@
 # userscripts
 
+[![Node.js](https://img.shields.io/badge/Node.js-26-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
+[![pnpm](https://img.shields.io/badge/pnpm-workspace-F69220?logo=pnpm&logoColor=white)](https://pnpm.io/)
+[![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white)](https://vite.dev/)
+[![vite-plugin-monkey](https://img.shields.io/badge/vite--plugin--monkey-8-FFB300)](https://github.com/lisonge/vite-plugin-monkey)
+[![Biome](https://img.shields.io/badge/Biome-2-60A5FA?logo=biome&logoColor=white)](https://biomejs.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-6-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Greasy Fork](https://img.shields.io/badge/Greasy%20Fork-distribution-670000)](https://greasyfork.org/)
+
 A pnpm-workspace monorepo for authoring userscripts with
 [vite-plugin-monkey](https://github.com/lisonge/vite-plugin-monkey) and
 [Biome](https://biomejs.dev/), distributed via
@@ -30,7 +38,7 @@ install its dependencies.
 ## Development
 
 ```bash
-nr dev -- --filter <name>
+pnpm --filter <name> dev
 ```
 
 Vite starts a dev server and vite-plugin-monkey serves an install URL
@@ -40,16 +48,18 @@ Vite starts a dev server and vite-plugin-monkey serves an install URL
 ## Build
 
 ```bash
-nr build                    # build all packages
-nr build -- --filter <name> # build one package
+nr build                           # build all packages
+pnpm --filter <name> build         # build one package
 ```
 
 Each package emits a single `packages/<name>/dist/<name>.user.js` with the
-metadata banner and inlined dependencies. `@version` is a date, `YYYY.MM.DD`
-(with a `.N` suffix for same-day rebuilds).
+metadata banner and inlined dependencies. `@version` is a date, `YYYY.MM.DD`,
+and each same-day rebuild bumps a monotonic `.N` suffix (read from the previous
+build's banner) so re-uploads to Greasy Fork always increase.
 
-> The `--` separates `ni`/`nr` arguments from pnpm's own flags, so pnpm's
-> `--filter` reaches pnpm instead of the underlying script.
+> The root `build` script runs `pnpm -r build` (all packages). To scope to one
+> package, invoke pnpm's workspace filter directly: `pnpm --filter <name>
+> build`.
 
 ## Lint & format
 
