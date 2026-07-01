@@ -1,5 +1,5 @@
 import { basename } from "node:path";
-import { type UserConfig, defineConfig } from "vite";
+import { defineConfig, type UserConfig } from "vite";
 import monkey, { type MonkeyUserScript } from "vite-plugin-monkey";
 
 /**
@@ -9,7 +9,12 @@ import monkey, { type MonkeyUserScript } from "vite-plugin-monkey";
  * `grant` stays optional — a script may legitimately need no GM_* grants.
  */
 export type UserScriptMeta = MonkeyUserScript &
-	Required<Pick<MonkeyUserScript, "name" | "description" | "version" | "match">>;
+	Required<
+		Pick<
+			MonkeyUserScript,
+			"name" | "description" | "version" | "match" | "icon"
+		>
+	>;
 
 /**
  * Build a Vite config for a userscript package with all the boilerplate that is
@@ -19,11 +24,11 @@ export type UserScriptMeta = MonkeyUserScript &
  * Pass `import.meta.dirname` as `packageDir`: its basename becomes the script
  * name, which drives the output filename and the download/update URLs.
  *
- * The given `userscript` fields are merged over the defaults (`namespace` and
- * `icon`), so a package can override them by simply setting them. Only the
- * userscript metadata is configurable — the vite-level options (entry, build,
- * server, plugins) are fixed; a package needing to change those should not use
- * this helper.
+ * The given `userscript` fields are merged over the default `namespace`, so a
+ * package can override it by simply setting it. `icon` has no default and is
+ * required per package. Only the userscript metadata is configurable — the
+ * vite-level options (entry, build, server, plugins) are fixed; a package
+ * needing to change those should not use this helper.
  *
  * @downloadURL / @updateURL are derived from GITHUB_REPOSITORY (injected by
  * GitHub in CI) and DIST_BRANCH (set by release.yml), with local fallbacks so a
@@ -46,7 +51,6 @@ export function defineMonkeyConfig(
 				server: { mountGmApi: true },
 				userscript: {
 					namespace: "https://github.com/simochee/userscripts",
-					icon: "https://www.google.com/s2/favicons?sz=64&domain=backlog.jp",
 					downloadURL: distURL,
 					updateURL: distURL,
 					...userscript,

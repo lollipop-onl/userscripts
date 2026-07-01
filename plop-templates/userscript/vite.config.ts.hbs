@@ -4,6 +4,7 @@ export default defineMonkeyConfig(import.meta.dirname, {
 	name: "{{title}}",
 	namespace: "{{namespace}}",
 	description: "{{description}}",
+	icon: "https://www.google.com/s2/favicons?sz=64&domain={{domain}}",
 	version: "{{version}}",
 	match: [{{#each match}}"{{this}}"{{#unless @last}}, {{/unless}}{{/each}}],
 	grant: [{{#each grant}}"{{this}}"{{#unless @last}}, {{/unless}}{{/each}}],

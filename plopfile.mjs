@@ -43,6 +43,14 @@ export default function (plop) {
 			},
 			{
 				type: "input",
+				name: "domain",
+				message: "Icon domain (favicon source, e.g. backlog.jp):",
+				validate: (value) =>
+					/^[a-z0-9]+([.-][a-z0-9]+)*\.[a-z]{2,}$/.test(value) ||
+					"Enter a bare domain (e.g. backlog.jp)",
+			},
+			{
+				type: "input",
 				name: "match",
 				message: "Match patterns (comma-separated):",
 				filter: (value) =>
