@@ -7,6 +7,7 @@ catalog:
   typescript: ^6.0.3
   "@biomejs/biome": ^2.5.2
   plop: ^4.0.5
+  vitest: ^4.0.0
 
 minimumReleaseAgeExclude:
   - '@biomejs/biome@2.5.2'
