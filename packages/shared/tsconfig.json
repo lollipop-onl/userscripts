@@ -1,4 +1,19 @@
 {
-	"extends": "../../tsconfig.base.json",
+	"compilerOptions": {
+		"target": "ESNext",
+		"module": "ESNext",
+		"moduleResolution": "bundler",
+		"strict": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"types": [
+			"vite/client",
+			"vite-plugin-monkey/client",
+			"vite-plugin-monkey/global",
+			"vite-plugin-monkey/style"
+		]
+	},
 	"include": ["src"]
 }
