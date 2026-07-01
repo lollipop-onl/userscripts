@@ -2,7 +2,7 @@
 // @name         ダッシュボードの「自分の課題」で状態を除外する
 // @namespace    https://github.com/simochee/userscripts
 // @version      2026.07.02
-// @description  ダッシュボードの「自分の課題」で状態が「処理済み」「未対応」の行を非表示にできるオプションを追加します
+// @description  Backlog のダッシュボードの「自分の課題」で状態が「処理済み」「未対応」の行を非表示にできるオプションを追加します。
 // @license      MIT
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=backlog.jp
 // @downloadURL  https://raw.githubusercontent.com/lollipop-onl/userscripts/dist/backlog-dashboard-my-issues-exclude-status.user.js
