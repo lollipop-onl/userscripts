@@ -7,6 +7,7 @@
 [![Biome](https://img.shields.io/badge/Biome-2-60A5FA?logo=biome&logoColor=white)](https://biomejs.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-6-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Greasy Fork](https://img.shields.io/badge/Greasy%20Fork-distribution-670000)](https://greasyfork.org/)
+[![Claude Code](https://img.shields.io/badge/Claude%20Code-D97757?logo=claude&logoColor=white)](https://claude.com/claude-code)
 
 A pnpm-workspace monorepo for authoring userscripts with
 [vite-plugin-monkey](https://github.com/lisonge/vite-plugin-monkey) and
