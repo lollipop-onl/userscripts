@@ -1,4 +1,4 @@
-import { watch } from "shared";
+import { watch } from "@userscripts/shared";
 import "./style.css";
 
 // Smoke wiring: proves `shared`'s watch() resolves and bundles here. The

@@ -1,11 +1,12 @@
 {
-	"name": "shared",
+	"name": "@userscripts/shared",
 	"version": "0.0.0",
 	"private": true,
 	"type": "module",
 	"exports": {
 		".": "./src/index.ts",
-		"./vite": "./src/vite.ts"
+		"./vite": "./src/vite.ts",
+		"./tsconfig.json": "./tsconfig.json"
 	},
 	"devDependencies": {
 		"vite": "catalog:",

@@ -1,4 +1,4 @@
-import { defineMonkeyConfig } from "shared/vite";
+import { defineMonkeyConfig } from "@userscripts/shared/vite";
 
 export default defineMonkeyConfig(import.meta.dirname, {
 	name: "ダッシュボードの「自分の課題」の行に色をつける",
