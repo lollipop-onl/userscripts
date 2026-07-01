@@ -59,9 +59,7 @@ pnpm --filter <name> build         # build one package
 ```
 
 Each package emits a single `packages/<name>/dist/<name>.user.js` with the
-metadata banner and inlined dependencies. `@version` is a date, `YYYY.MM.DD`,
-and each same-day rebuild bumps a monotonic `.N` suffix (read from the previous
-build's banner) so re-uploads to Greasy Fork always increase.
+metadata banner and inlined dependencies.
 
 > The root `build` script runs `pnpm -r build` (all packages). To scope to one
 > package, invoke pnpm's workspace filter directly: `pnpm --filter <name>
@@ -73,14 +71,35 @@ build's banner) so re-uploads to Greasy Fork always increase.
 nr check
 ```
 
-## Distribution
-
-Upload the built `.user.js` to Greasy Fork manually. Each script carries
-`@downloadURL`/`@updateURL` so end users receive automatic updates.
-
 ## Versioning
 
-Versions are date-based (`YYYY.MM.DD`) and generated at build time by
-`scripts/version.ts`. Greasy Fork requires monotonically increasing versions,
-which dates satisfy naturally. The `version` field in each package's
-`package.json` is unused for distribution.
+Each package sets `@version` by hand in its `vite.config.ts` (SemVer, e.g.
+`1.0.0`). Bump it to publish an update; leave it unchanged to ship code without
+republishing — Greasy Fork treats an unchanged `@version` as a no-op.
+
+## Release & distribution
+
+On every push to `main`, the `release` workflow builds all packages and syncs
+the resulting `<name>.user.js` files to the flat `dist` branch. Their raw URLs
+
+```
+https://raw.githubusercontent.com/simochee/userscripts/dist/<name>.user.js
+```
+
+are what each script's `@downloadURL`/`@updateURL` point at, and are registered
+as the sync source on [Greasy Fork](https://greasyfork.org/). The workflow
+commits to `dist` only when a build output actually changed.
+
+### One-time setup
+
+Create the empty orphan `dist` branch once, before the first release:
+
+```bash
+git switch --orphan dist
+git commit --allow-empty -m "chore: initialize dist branch"
+git push -u origin dist
+git switch main
+```
+
+Then register each script on Greasy Fork with its raw `dist` URL as the sync
+source (optionally add the GitHub webhook for push-triggered sync).
