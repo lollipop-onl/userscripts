@@ -18,7 +18,7 @@ Greasy Fork from the `dist` branch.
 ## Toolchain (pinned)
 
 - Node 26.2.0 + pnpm 11.6.0 via `package.json` `devEngines` (`onFail: download`).
-- Bootstrap with `mise install` (mise.toml provides @antfu/ni; postinstall hook runs `ni`).
+- Bootstrap with `mise install` (mise.toml provides @antfu/ni), then `ni` to install deps.
 - `pnpm-lock.yaml` records node as a dependency (devEngines onFail:download) — this is
   expected; do not "clean" it.
 
