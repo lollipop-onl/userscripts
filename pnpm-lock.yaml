@@ -39,6 +39,15 @@ importers:
         specifier: 'catalog:'
         version: 6.0.3
 
+  packages/backlog-dashboard-my-issues-exclude-status:
+    devDependencies:
+      vite:
+        specifier: 'catalog:'
+        version: 8.1.2(@types/node@26.0.1)
+      vite-plugin-monkey:
+        specifier: 'catalog:'
+        version: 8.0.6(postcss@8.5.16)(vite@8.1.2(@types/node@26.0.1))
+
   packages/backlog-dashboard-my-issues-row-color:
     devDependencies:
       vite:
@@ -47,6 +56,8 @@ importers:
       vite-plugin-monkey:
         specifier: 'catalog:'
         version: 8.0.6(postcss@8.5.16)(vite@8.1.2(@types/node@26.0.1))
+
+  packages/shared: {}
 
 packages:
 
