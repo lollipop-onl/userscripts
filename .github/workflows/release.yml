@@ -29,10 +29,10 @@ jobs:
         uses: jdx/mise-action@v2
 
       - name: Install dependencies
-        run: ni --frozen
+        run: pnpm install --frozen-lockfile
 
       - name: Build all packages
-        run: nr build
+        run: pnpm -r build
 
       - name: Sync built userscripts to the dist branch
         run: |

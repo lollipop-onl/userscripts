@@ -18,7 +18,12 @@ Greasy Fork from the `dist` branch.
 ## Toolchain (pinned)
 
 - Node 26.2.0 + pnpm 11.6.0 via `package.json` `devEngines` (`onFail: download`).
-- Bootstrap with `mise install` (mise.toml provides @antfu/ni), then `ni` to install deps.
+  mise reads `devEngines` and downloads both; `mise install` also honors mise.toml
+  `[settings]`. Do NOT add `npm:@antfu/ni` to mise `[tools]`: mise resolves it via
+  `npm view`, which npm aborts with EBADDEVENGINES against `devEngines.packageManager`
+  (pnpm). `ni` is a local convenience only — install it globally if you want it.
+- Bootstrap with `mise install`, then `pnpm install`. CI (release.yml) uses
+  `pnpm install --frozen-lockfile` + `pnpm -r build` directly, not `ni`/`nr`.
 - `pnpm-lock.yaml` records node as a dependency (devEngines onFail:download) — this is
   expected; do not "clean" it.
 
