@@ -1,30 +1,10 @@
-import { defineConfig } from "vite";
-import monkey from "vite-plugin-monkey";
+import { defineMonkeyConfig } from "shared/vite";
 
-const name = "{{name}}";
-// In CI these come from the workflow (GITHUB_REPOSITORY is injected by GitHub,
-// DIST_BRANCH by release.yml). Locally they fall back to the defaults below.
-const {
-	GITHUB_REPOSITORY = "simochee/userscripts",
-	DIST_BRANCH = "dist",
-} = process.env;
-const downloadURL = `https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/${DIST_BRANCH}/${name}.user.js`;
-
-export default defineConfig({
-	plugins: [
-		monkey({
-			entry: "src/main.ts",
-			build: { fileName: `${name}.user.js` },
-			userscript: {
-				name: "{{title}}",
-				namespace: "{{namespace}}",
-				description: "{{description}}",
-				version: "{{version}}",
-				match: [{{#each match}}"{{this}}"{{#unless @last}}, {{/unless}}{{/each}}],
-				grant: [{{#each grant}}"{{this}}"{{#unless @last}}, {{/unless}}{{/each}}],
-				downloadURL,
-				updateURL: downloadURL,
-			},
-		}),
-	],
+export default defineMonkeyConfig(import.meta.dirname, {
+	name: "{{title}}",
+	namespace: "{{namespace}}",
+	description: "{{description}}",
+	version: "{{version}}",
+	match: [{{#each match}}"{{this}}"{{#unless @last}}, {{/unless}}{{/each}}],
+	grant: [{{#each grant}}"{{this}}"{{#unless @last}}, {{/unless}}{{/each}}],
 });

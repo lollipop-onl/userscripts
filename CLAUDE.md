@@ -36,7 +36,15 @@ Greasy Fork from the `dist` branch.
 
 ## Per-package vite.config.ts shape
 
-`monkey({ entry, build: { fileName: "<name>.user.js" }, userscript: {...} })`.
+Each `vite.config.ts` calls the shared helper:
+`export default defineMonkeyConfig(import.meta.dirname, { name, description, version, match, grant, ... })`
+imported from `shared/vite`. The helper (`packages/shared/src/vite.ts`) derives
+the script name from the directory basename (`import.meta.dirname`) and fills in
+everything identical across packages: `entry: "src/main.ts"`, output
+`build.fileName`, `server.mountGmApi: true`, a default `namespace` and `icon`,
+`@downloadURL`/`@updateURL`, and vite `build.minify: false`. The second argument
+is a `MonkeyUserScript` merged over those defaults (`...userscript` last), so a
+package overrides any default (e.g. `namespace`, `icon`) by simply setting it.
 `@downloadURL`/`@updateURL` are built from env with local fallbacks:
 `https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/${DIST_BRANCH}/<name>.user.js`
 where `GITHUB_REPOSITORY` (GitHub-injected in CI) defaults to `simochee/userscripts`
@@ -55,5 +63,5 @@ truth for this shape; new packages are scaffolded from it via `nr new`.
 ## Layout
 
 - `packages/<name>/` — one userscript (package.json, tsconfig.json extends
-  `../../tsconfig.base.json`, vite.config.ts, src/main.ts).
+  `../shared/tsconfig.json`, vite.config.ts, src/main.ts).
 - `plopfile.mjs` + `plop-templates/userscript/` — scaffold.
