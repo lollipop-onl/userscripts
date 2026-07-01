@@ -3,6 +3,7 @@
 // @namespace    https://github.com/simochee/userscripts
 // @version      2026.07.02
 // @description  ダッシュボードの「自分の課題」の各行を状態に合わせた色にします
+// @license      MIT
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=backlog.jp
 // @downloadURL  https://raw.githubusercontent.com/lollipop-onl/userscripts/dist/backlog-dashboard-my-issues-row-color.user.js
 // @updateURL    https://raw.githubusercontent.com/lollipop-onl/userscripts/dist/backlog-dashboard-my-issues-row-color.user.js
