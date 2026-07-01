@@ -1,27 +1,24 @@
 import { defineConfig } from "vite";
 import monkey from "vite-plugin-monkey";
-import { resolveVersion } from "../../scripts/version.ts";
 
 const name = "{{name}}";
-const repoRawBase =
-  "https://raw.githubusercontent.com/simochee/userscripts/main/packages";
-const downloadURL = `${repoRawBase}/${name}/dist/${name}.user.js`;
+const downloadURL = `https://raw.githubusercontent.com/simochee/userscripts/dist/${name}.user.js`;
 
 export default defineConfig({
-  plugins: [
-    monkey({
-      entry: "src/main.ts",
-      build: { fileName: `${name}.user.js` },
-      userscript: {
-        name: "{{title}}",
-        namespace: "{{namespace}}",
-        description: "{{description}}",
-        version: resolveVersion(`dist/${name}.user.js`),
-        match: [{{#each match}}"{{this}}"{{#unless @last}}, {{/unless}}{{/each}}],
-        grant: [{{#each grant}}"{{this}}"{{#unless @last}}, {{/unless}}{{/each}}],
-        downloadURL,
-        updateURL: downloadURL,
-      },
-    }),
-  ],
+	plugins: [
+		monkey({
+			entry: "src/main.ts",
+			build: { fileName: `${name}.user.js` },
+			userscript: {
+				name: "{{title}}",
+				namespace: "{{namespace}}",
+				description: "{{description}}",
+				version: "1.0.0",
+				match: [{{#each match}}"{{this}}"{{#unless @last}}, {{/unless}}{{/each}}],
+				grant: [{{#each grant}}"{{this}}"{{#unless @last}}, {{/unless}}{{/each}}],
+				downloadURL,
+				updateURL: downloadURL,
+			},
+		}),
+	],
 });
