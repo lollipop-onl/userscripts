@@ -1,16 +1,18 @@
 // ==UserScript==
-// @name         ダッシュボードの「自分の課題」で状態を除外する
-// @namespace    https://github.com/simochee/userscripts
-// @version      2026.07.02
-// @description  Backlog のダッシュボードの「自分の課題」で状態が「処理済み」「未対応」の行を非表示にできるオプションを追加します。
-// @license      MIT
-// @icon         https://www.google.com/s2/favicons?sz=64&domain=backlog.jp
-// @downloadURL  https://raw.githubusercontent.com/lollipop-onl/userscripts/dist/backlog-dashboard-my-issues-exclude-status.user.js
-// @updateURL    https://raw.githubusercontent.com/lollipop-onl/userscripts/dist/backlog-dashboard-my-issues-exclude-status.user.js
-// @match        https://*.backlog.com/*
-// @match        https://*.backlog.jp/*
-// @match        https://*.backlogtool.com/*
-// @grant        GM_addStyle
+// @name            Exclude Statuses from Backlog Dashboard My Issues
+// @name:ja         ダッシュボードの「自分の課題」で状態を除外する
+// @namespace       https://github.com/simochee/userscripts
+// @version         2026.07.02.1
+// @description     Adds an option to the Backlog dashboard's My Issues to hide rows whose status is Closed or Open.
+// @description:ja  Backlog のダッシュボードの「自分の課題」で状態が「処理済み」「未対応」の行を非表示にできるオプションを追加します。
+// @license         MIT
+// @icon            https://www.google.com/s2/favicons?sz=64&domain=backlog.jp
+// @downloadURL     https://raw.githubusercontent.com/lollipop-onl/userscripts/dist/backlog-dashboard-my-issues-exclude-status.user.js
+// @updateURL       https://raw.githubusercontent.com/lollipop-onl/userscripts/dist/backlog-dashboard-my-issues-exclude-status.user.js
+// @match           https://*.backlog.com/*
+// @match           https://*.backlog.jp/*
+// @match           https://*.backlogtool.com/*
+// @grant           GM_addStyle
 // ==/UserScript==
 
 (function() {

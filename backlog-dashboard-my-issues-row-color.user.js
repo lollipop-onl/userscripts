@@ -1,16 +1,18 @@
 // ==UserScript==
-// @name         ダッシュボードの「自分の課題」の行に色をつける
-// @namespace    https://github.com/simochee/userscripts
-// @version      2026.07.02
-// @description  Backlog のダッシュボードの「自分の課題」の各行を状態に合わせた色にします。
-// @license      MIT
-// @icon         https://www.google.com/s2/favicons?sz=64&domain=backlog.jp
-// @downloadURL  https://raw.githubusercontent.com/lollipop-onl/userscripts/dist/backlog-dashboard-my-issues-row-color.user.js
-// @updateURL    https://raw.githubusercontent.com/lollipop-onl/userscripts/dist/backlog-dashboard-my-issues-row-color.user.js
-// @match        https://*.backlog.com/*
-// @match        https://*.backlog.jp/*
-// @match        https://*.backlogtool.com/*
-// @grant        GM_addStyle
+// @name            Colorize Backlog Dashboard My Issues Rows
+// @name:ja         ダッシュボードの「自分の課題」の行に色をつける
+// @namespace       https://github.com/simochee/userscripts
+// @version         2026.07.02.1
+// @description     Colors each row of the Backlog dashboard's My Issues according to its status.
+// @description:ja  Backlog のダッシュボードの「自分の課題」の各行を状態に合わせた色にします。
+// @license         MIT
+// @icon            https://www.google.com/s2/favicons?sz=64&domain=backlog.jp
+// @downloadURL     https://raw.githubusercontent.com/lollipop-onl/userscripts/dist/backlog-dashboard-my-issues-row-color.user.js
+// @updateURL       https://raw.githubusercontent.com/lollipop-onl/userscripts/dist/backlog-dashboard-my-issues-row-color.user.js
+// @match           https://*.backlog.com/*
+// @match           https://*.backlog.jp/*
+// @match           https://*.backlogtool.com/*
+// @grant           GM_addStyle
 // ==/UserScript==
 
 (function() {
