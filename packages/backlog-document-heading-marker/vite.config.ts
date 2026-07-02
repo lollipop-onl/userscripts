@@ -10,7 +10,7 @@ export default defineMonkeyConfig(import.meta.dirname, {
 		ja: "Backlog のドキュメントの各見出しの前に見出しレベルのマーカーをつけて視認性を上げます。",
 	},
 	icon: "https://www.google.com/s2/favicons?sz=64&domain=backlog.jp",
-	version: "2026.07.02",
+	version: "2026.07.02.1",
 	match: [
 		"https://*.backlog.com/*",
 		"https://*.backlog.jp/*",

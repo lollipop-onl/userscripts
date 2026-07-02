@@ -10,7 +10,7 @@ export default defineMonkeyConfig(import.meta.dirname, {
 		ja: "Backlog のダッシュボードの「自分の課題」で状態が「処理済み」「未対応」の行を非表示にできるオプションを追加します。",
 	},
 	icon: "https://www.google.com/s2/favicons?sz=64&domain=backlog.jp",
-	version: "2026.07.02.1",
+	version: "2026.07.02.2",
 	match: [
 		"https://*.backlog.com/*",
 		"https://*.backlog.jp/*",
