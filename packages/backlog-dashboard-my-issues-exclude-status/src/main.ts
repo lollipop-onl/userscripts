@@ -2,19 +2,19 @@ import { watch } from "@userscripts/shared";
 import "./style.css";
 
 (() => {
-  const OPTIONS = [
-    ["resolve", "処理済み"],
-    ["open", "未対応"],
-  ];
+	const OPTIONS = [
+		["resolve", "処理済み"],
+		["open", "未対応"],
+	];
 
-  watch("#issueListMenu", (el) => {
-    el.insertAdjacentHTML(
-      "beforeend",
-      `
+	watch("#issueListMenu", (el) => {
+		el.insertAdjacentHTML(
+			"beforeend",
+			`
       <dl class="filter-nav">
         <dt class="filter-nav__term">行除外</dt>
         ${OPTIONS.map(
-          ([status, name]) => `
+					([status, name]) => `
           <dd class="filter-nav__item">
             <input
               type="checkbox"
@@ -29,9 +29,9 @@ import "./style.css";
             </label>
           </dd>
           `,
-        ).join("")}
+				).join("")}
       </dl>
       `,
-    );
-  });
+		);
+	});
 })();
