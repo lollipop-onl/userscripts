@@ -1,0 +1,13 @@
+.comment-list > div,
+.comment-list__items {
+	display: flex;
+	flex-direction: column-reverse;
+}
+
+.comment-item:first-of-type > .comment-item__inner {
+	border-top: solid 1px var(--borderColorDefault);
+}
+
+.comment-item:last-of-type > .comment-item__inner {
+	border-top: 0;
+}
