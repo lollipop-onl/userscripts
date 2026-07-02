@@ -1,0 +1,24 @@
+/*
+ * Only "#" and the characters used by the "h1"–"h6" fallback labels are
+ * rendered, so subset the webfont via `text=` to minimize the download.
+ * (text=%23h123456 → the characters "#", "h", and "1"–"6")
+ */
+@import url("https://fonts.googleapis.com/css2?family=Pathway+Gothic+One&text=%23&display=swap");
+
+.doc-container :where(h1, h2, h3, h4, h5, h6) {
+	position: relative;
+}
+
+.doc-container :where(h1, h2, h3, h4, h5, h6)::before {
+	font-family: "Pathway Gothic One", sans-serif;
+	color: var(--textColorWeak);
+	position: absolute;
+	top: 50%;
+	left: 0;
+	transform: translateX(calc(-100% - 8px)) translateY(-50%);
+}
+
+.main-container:where(.-medium, .-small)
+	:where(h1, h2, h3, h4, h5, h6)::before {
+	left: 5px;
+}
