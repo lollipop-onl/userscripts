@@ -73,3 +73,6 @@ truth for this shape; new packages are scaffolded from it via `nr new`.
 - `packages/<name>/` — one userscript (package.json, tsconfig.json extends
   `../shared/tsconfig.json`, vite.config.ts, src/main.ts).
 - `plopfile.mjs` + `plop-templates/userscript/` — scaffold.
+- `docs/superpowers/specs/` — retained design docs. `docs/superpowers/plans/`
+  holds implementation plans; **delete a plan file once its implementation is
+  fully complete** (keep the matching spec).
