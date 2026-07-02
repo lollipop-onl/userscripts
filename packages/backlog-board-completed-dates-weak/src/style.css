@@ -1,0 +1,13 @@
+section[class$="-col"]:has(.status--3) {
+	.dueWithFire {
+		color: var(--textColorWeak);
+
+		input {
+			color: currentColor !important;
+		}
+
+		svg use {
+			fill: currentColor;
+		}
+	}
+}
