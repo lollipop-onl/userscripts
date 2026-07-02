@@ -35,9 +35,12 @@ Greasy Fork from the `dist` branch.
 - **All authored text in English** (code, comments, config, docs, Plop prompts).
 - **`monkey()` must be the LAST plugin** in each package's vite plugin list.
 - **`dist/` is gitignored** — build output is never committed to `main`.
-- **Manual SemVer.** Each package hard-codes `version: "x.y.z"` in its `vite.config.ts`.
-  Bump to publish; leave unchanged to ship code without republishing (Greasy Fork
-  treats an unchanged `@version` as a no-op). No auto/date-based versioning.
+- **Manual date-based versioning.** Each package hard-codes a `version` string in its
+  `vite.config.ts` shaped as `YYYY.MM.DD` (the release date), with an optional `.N`
+  suffix for a same-day re-release. The first release on a given day is `YYYY.MM.DD`
+  (i.e. an omitted `.0`); if another release happens the same day, append `.1`, then
+  `.2`, and so on. Bump to publish; leave unchanged to ship code without republishing
+  (Greasy Fork treats an unchanged `@version` as a no-op).
 
 ## Per-package vite.config.ts shape
 
