@@ -58,6 +58,10 @@ export function defineMonkeyConfig(
 				},
 			}),
 		],
-		build: { minify: false },
+		// Process CSS with Lightning CSS and keep it unminified, so the styles
+		// embedded in the built userscript stay formatted and readable rather
+		// than being collapsed onto a single line.
+		css: { transformer: "lightningcss" },
+		build: { minify: false, cssMinify: false },
 	});
 }

@@ -7,6 +7,7 @@ overrides:
 catalog:
   vite: ^8.1.2
   vite-plugin-monkey: ^8.0.6
+  lightningcss: ^1.32.0
   typescript: ^6.0.3
   "@biomejs/biome": ^2.5.2
   plop: ^4.0.5

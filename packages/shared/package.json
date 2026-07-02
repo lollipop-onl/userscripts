@@ -9,6 +9,7 @@
 		"./tsconfig.json": "./tsconfig.json"
 	},
 	"devDependencies": {
+		"lightningcss": "catalog:",
 		"vite": "catalog:",
 		"vite-plugin-monkey": "catalog:"
 	}
