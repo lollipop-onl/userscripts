@@ -1,0 +1,39 @@
+.dashboard-contents__left,
+.dashboard-contents__right {
+	float: none;
+	width: 100% !important;
+	padding: 0;
+}
+
+.dashboard-contents__left {
+	display: grid;
+	grid-template:
+		"projects issues" auto
+		"pull-requests issues" 1fr /
+		1fr 1fr;
+	gap: 24px 32px;
+
+	#project-list {
+		grid-area: projects;
+	}
+
+	#my_pullrequests {
+		grid-area: pull-requests;
+	}
+
+	#my_issues {
+		grid-area: issues;
+	}
+
+	.blog-articles-section {
+		display: none;
+
+		& + section {
+			display: none;
+		}
+	}
+
+	.title-group.-dashboard {
+		flex-wrap: wrap;
+	}
+}
