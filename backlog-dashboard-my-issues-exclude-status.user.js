@@ -2,7 +2,7 @@
 // @name            Exclude Statuses from Backlog Dashboard My Issues
 // @name:ja         ダッシュボードの「自分の課題」で状態を除外する
 // @namespace       https://github.com/simochee/userscripts
-// @version         2026.07.02.1
+// @version         2026.07.02.2
 // @description     Adds an option to the Backlog dashboard's My Issues to hide rows whose status is Closed or Open.
 // @description:ja  Backlog のダッシュボードの「自分の課題」で状態が「処理済み」「未対応」の行を非表示にできるオプションを追加します。
 // @license         MIT
@@ -80,7 +80,7 @@
 			for (const el of [...live]) runCleanup(el);
 		};
 	}
-	_css("body:has(#row_filter_resolve:checked) #issueList tr:has(.status--3){display:none}body:has(#row_filter_open:checked) #issueList tr:has(.status--1){display:none}#issueListMenu input[name=row_filter]{display:none}#issueListMenu input[name=row_filter]:checked+label{background-color:var(--defaultColorAccent);color:var(--backgroundColorSchemeBase);text-decoration:none}");
+	_css("body:has(#row_filter_resolve:checked) #issueList tr:has(.status--3) {\n  display: none;\n}\n\nbody:has(#row_filter_open:checked) #issueList tr:has(.status--1) {\n  display: none;\n}\n\n#issueListMenu input[name=\"row_filter\"] {\n  display: none;\n}\n\n#issueListMenu input[name=\"row_filter\"]:checked + label {\n  background-color: var(--defaultColorAccent);\n  color: var(--backgroundColorSchemeBase);\n  text-decoration: none;\n}\n");
 	(() => {
 		const OPTIONS = [["resolve", "処理済み"], ["open", "未対応"]];
 		watch("#issueListMenu", (el) => {
